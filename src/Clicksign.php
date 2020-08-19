@@ -51,6 +51,6 @@ class Clicksign
                 "sequence_enabled" => $sequence_enabled
             ]
         ];
-        return Http::post("$this->urlBase/api/v1/documents?access_token=eb570765-21cb-4f1a-a6e3-704550d8a30a", $body);
+        return Http::post("$this->urlBase/api/v1/documents?access_token=$this->accessToken", $body);
     }
 }
