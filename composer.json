@@ -1,0 +1,54 @@
+{
+    "name": "stonkeep/clicksign",
+    "description": "Laravel package for integration with Clicksign",
+    "keywords": [
+        "stonkeep",
+        "clicksign"
+    ],
+    "homepage": "https://github.com/stonkeep/clicksign",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mateus Galasso",
+            "email": "mateusgalasso@yahoo.com.br",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stonkeep\\Clicksign\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Stonkeep\\Clicksign\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Stonkeep\\Clicksign\\ClicksignServiceProvider"
+            ],
+            "aliases": {
+                "Clicksign": "Stonkeep\\Clicksign\\ClicksignFacade"
+            }
+        }
+    }
+}
