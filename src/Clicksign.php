@@ -39,6 +39,7 @@ class Clicksign
      * @param bool $sequence_enabled
      * @return Response
      * @throws FileNotFoundException
+     * @throws \Throwable
      */
     public function createDocument(String $path, $deadline = null, $autoClose = true, $locale = 'pt-BR', $sequence_enabled = false)
     {
@@ -87,5 +88,30 @@ class Clicksign
             ]
         ];
         return Http::post("$this->urlBase/api/v1/signers?access_token=$this->accessToken", $body);
+    }
+
+    /**
+     * @param String $document_key
+     * @param null $signer_key
+     * @param null $message
+     * @param string $sign_as
+     * @return Response
+     * @throws \Throwable
+     */
+    public function signerToDocument(String $document_key, $signer_key, $sign_as = 'approve', $message = null)
+    {
+        //Verify if parameters were passed
+        throw_if(!isset($document_key) or !isset($signer_key), 'Some parameters are unset');
+//        $message = $message ?? "Prezado ,\nPor favor assine o documento.\n\nQualquer dúvida estou à disposição.\n\nAtenciosamente.";
+        //Mount body
+        $body = [
+            "list" => [
+                "document_key" => $document_key,
+                "signer_key" => $signer_key,
+                "sign_as" => $sign_as,
+//                "message" => $message
+            ]
+        ];
+        return Http::post("$this->urlBase/api/v1/lists?access_token=$this->accessToken", $body);
     }
 }
