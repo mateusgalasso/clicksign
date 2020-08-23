@@ -114,4 +114,16 @@ class Clicksign
         ];
         return Http::post("$this->urlBase/api/v1/lists?access_token=$this->accessToken", $body);
     }
+
+    /**
+     * @param String $document_key
+     * @return Response
+     * @throws \Throwable
+     */
+    public function visualizaDocumento(String $document_key)
+    {
+        //Verify if parameters were passed
+        throw_if(!isset($document_key), 'Some parameters are unset');
+        return Http::get("$this->urlBase/api/v1/documents/$document_key?access_token=$this->accessToken");
+    }
 }
