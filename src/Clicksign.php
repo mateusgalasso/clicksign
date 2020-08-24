@@ -20,7 +20,7 @@ class Clicksign
     public function __construct()
     {
         try {
-            $this->accessToken = env('CLICKSIGN_ACCESS_TOKEN');
+            $this->accessToken = config('config.accessToken');
             throw_if(is_null($this->accessToken), 'Não possui chave de acesso. Favor verificar');
         } catch (\Exception $e) {
             return;
