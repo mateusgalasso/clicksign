@@ -15,25 +15,37 @@ You can install the package via composer:
 composer require stonkeep/clicksign
 ```
 
+fill in the required variables
+```bash
+CLICKSIGN_ACCESS_TOKEN=
+CLICKSIGN_DEV_MODE=true
+```
+
 ## Usage
 
+#### To create a document
 ``` php
-// Usage description here
+$response = (new Clicksign())->createDocument($path,$deadline = null, $autoClose = true, $locale = 'pt-BR', $sequence_enabled = false);
 ```
 
-### Testing
-
-``` bash
-composer test
+#### To create a signer
+``` php
+$response = (new Clicksign())->createSigner($email, $name, $phoneNumber = null, $documentation = false, $birthday = null, $has_documentation = false);
 ```
+
+#### To add a signer to the document
+``` php
+$response =  (new Clicksign())->signerToDocument($DocumentKey, $signerKey);
+```
+#### to view a document
+``` php
+$response =  (new Clicksign())->visualizaDocumento($DocumentKey);
+```
+
 
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
