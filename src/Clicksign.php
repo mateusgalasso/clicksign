@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class Clicksign
 {
     private $accessToken;
-    private $url = '/api/v1/documents?access_token=';
+    private $urlVersion = '/api/v1/documents?access_token=';
     private $urlBase;
     /**
      * @var string
@@ -21,14 +21,23 @@ class Clicksign
     {
         try {
             $this->accessToken = config('config.accessToken');
-            throw_if(is_null($this->accessToken), 'Não possui chave de acesso. Favor verificar');
+            //get url version
+            $this->urlVersion = config('config.urlVersion');
+            //Mount base URL
+            $this->urlBase = config('config.urlBase');
+            //mount full url
+            $this->fullUrl = $this->urlBase . $this->urlVersion . $this->accessToken;
         } catch (\Exception $e) {
             return;
         }
-        //Mount base URL
-        $this->urlBase = env('CLICKSIGN_DEV_MODE', true) ? env('CLICKSIGN_DEV_URL', 'https://sandbox.clicksign.com') : env('CLICKSIGN_PROD_URL', 'https://app.clicksign.com');
-        //mount full url
-        $this->fullUrl = $this->urlBase . $this->url . $this->accessToken;
+    }
+
+    /**
+     * @throws \Throwable
+     */
+    public function validateToken()
+    {
+        throw_if(is_null($this->accessToken), 'Não possui chave de acesso. Favor verificar');
     }
 
     /**
@@ -43,6 +52,7 @@ class Clicksign
      */
     public function createDocument(String $path, $deadline = null, $autoClose = true, $locale = 'pt-BR', $sequence_enabled = false)
     {
+        $this->validateToken();
         //Verify if parameters were passed
         throw_if(!isset($path), 'Some parameters are unset');
         //Mount body
@@ -71,6 +81,7 @@ class Clicksign
      */
     public function createSigner(String $email, String $name, $phoneNumber = null, $documentation = false, $birthday = null, $has_documentation = false)
     {
+        $this->validateToken();
         //Verify if parameters were passed
         throw_if(!isset($email) or !isset($name), 'Some parameters are unset');
         //Mount body
@@ -100,6 +111,7 @@ class Clicksign
      */
     public function signerToDocument(String $document_key, $signer_key, $sign_as = 'approve', $message = null)
     {
+        $this->validateToken();
         //Verify if parameters were passed
         throw_if(!isset($document_key) or !isset($signer_key), 'Some parameters are unset');
 //        $message = $message ?? "Prezado ,\nPor favor assine o documento.\n\nQualquer dúvida estou à disposição.\n\nAtenciosamente.";
@@ -122,6 +134,7 @@ class Clicksign
      */
     public function visualizaDocumento(String $document_key)
     {
+        $this->validateToken();
         //Verify if parameters were passed
         throw_if(!isset($document_key), 'Some parameters are unset');
         return Http::get("$this->urlBase/api/v1/documents/$document_key?access_token=$this->accessToken");
