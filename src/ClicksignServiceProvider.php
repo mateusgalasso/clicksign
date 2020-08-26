@@ -22,7 +22,7 @@ class ClicksignServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('clicksign.php'),
-            ], 'config');
+            ], 'config-stonkeep-clicksign');
 
             // Publishing the views.
             /*$this->publishes([

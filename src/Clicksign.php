@@ -6,6 +6,7 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class Clicksign
 {
@@ -20,11 +21,11 @@ class Clicksign
     public function __construct()
     {
         try {
-            $this->accessToken = config('config.accessToken');
+            $this->accessToken = config('clicksign.accessToken');
             //get url version
-            $this->urlVersion = config('config.urlVersion');
+            $this->urlVersion = config('clicksign.urlVersion');
             //Mount base URL
-            $this->urlBase = config('config.urlBase');
+            $this->urlBase = config('clicksign.urlBase');
             //mount full url
             $this->fullUrl = $this->urlBase . $this->urlVersion . $this->accessToken;
         } catch (\Exception $e) {
