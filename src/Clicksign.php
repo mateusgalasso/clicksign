@@ -42,7 +42,9 @@ class Clicksign
     }
 
     /**
-     * @param String $path
+     * @param String $path //Path in your machine or server
+     * @param String $mimetype //mimtype of file
+     * @param String $clicksignPath //path in clicsksign server
      * @param null $deadline
      * @param bool $autoClose
      * @param string $locale
@@ -51,7 +53,7 @@ class Clicksign
      * @throws FileNotFoundException
      * @throws \Throwable
      */
-    public function createDocument(String $path, $deadline = null, $autoClose = true, $locale = 'pt-BR', $sequence_enabled = false)
+    public function createDocument(String $path, String $clicksignPath = null,$mimetype = 'application/pdf', $deadline = null, $autoClose = true, $locale = 'pt-BR', $sequence_enabled = false)
     {
         $this->validateToken();
         //Verify if parameters were passed
@@ -59,8 +61,8 @@ class Clicksign
         //Mount body
         $body = [
             "document" => [
-                "path" => "/$path",
-                "content_base64" => "data:application/pdf;base64," . base64_encode(Storage::get($path)),
+                "path" => $clicksignPath ? "/$clicksignPath" : "/$path",
+                "content_base64" => "data:$mimetype;base64," . base64_encode(Storage::get($path)),
                 "deadline_at" => $deadline,
                 "auto_close" => $autoClose,
                 "locale" => $locale,
