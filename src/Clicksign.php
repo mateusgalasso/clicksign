@@ -6,7 +6,6 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Log;
 
 class Clicksign
 {
@@ -53,7 +52,7 @@ class Clicksign
      * @throws FileNotFoundException
      * @throws \Throwable
      */
-    public function createDocument(String $path, String $clicksignPath = null,$mimetype = 'application/pdf', $deadline = null, $autoClose = true, $locale = 'pt-BR', $sequence_enabled = false)
+    public function createDocument(String $path, String $clicksignPath = null, $mimetype = 'application/pdf', $deadline = null, $autoClose = true, $locale = 'pt-BR', $sequence_enabled = false)
     {
         $this->validateToken();
         //Verify if parameters were passed

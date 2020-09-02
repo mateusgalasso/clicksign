@@ -25,7 +25,7 @@ CLICKSIGN_DEV_MODE=true
 
 #### To create a document
 ``` php
-$response = (new Clicksign())->createDocument($path,$deadline = null, $autoClose = true, $locale = 'pt-BR', $sequence_enabled = false);
+$response = (new Clicksign())->createDocument($path, $clicksignPath = null, $mimetype = 'application/pdf', $deadline = null, $autoClose = true, $locale = 'pt-BR', $sequence_enabled = false);
 ```
 
 #### To create a signer
