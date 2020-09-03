@@ -131,6 +131,28 @@ class Clicksign
 
     /**
      * @param String $document_key
+     * @param null $signer_key
+     * @param null $message
+     * @param string $sign_as
+     * @return Response
+     * @throws \Throwable
+     */
+    public function notificationsByEmail($signer_key, $message = null)
+    {
+        $this->validateToken();
+        //Verify if parameters were passed
+        throw_if(!isset($signer_key), 'Some parameters are unset');
+        //Mount body
+        $body = [
+            "request_signature_key" => $signer_key,
+            "message" => $message ?? "Prezado ,\nPor favor assine o documento.\n\nQualquer dúvida estou à disposição.\n\nAtenciosamente.",
+        ];
+        return Http::post("$this->urlBase/api/v1/notifications?access_token=$this->accessToken", $body);
+    }
+
+
+    /**
+     * @param String $document_key
      * @return Response
      * @throws \Throwable
      */
