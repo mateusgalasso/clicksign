@@ -72,6 +72,32 @@ class Clicksign
     }
 
     /**
+     * @param $key
+     * @throws \Throwable
+     */
+    public function cancelDocument($key)
+    {
+        $this->validateToken();
+        //Verify if parameters were passed
+        throw_if(!isset($key), 'Some parameters are unset');
+
+        return Http::patch("$this->urlBase/api/v1/documents/$key/cancel?access_token=$this->accessToken");
+    }
+
+    /**
+     * @param $key
+     * @throws \Throwable
+     */
+    public function deleteDocument($key)
+    {
+        $this->validateToken();
+        //Verify if parameters were passed
+        throw_if(!isset($key), 'Some parameters are unset');
+
+        return Http::delete("$this->urlBase/api/v1/documents/$key?access_token=$this->accessToken");
+    }
+
+    /**
      * @param String $email
      * @param String $name
      * @param null $phoneNumber
