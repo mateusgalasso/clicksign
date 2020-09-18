@@ -5,7 +5,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/stonkeep/clicksign.svg?style=flat-square)](https://scrutinizer-ci.com/g/stonkeep/clicksign)
 [![Total Downloads](https://img.shields.io/packagist/dt/stonkeep/clicksign.svg?style=flat-square)](https://packagist.org/packages/stonkeep/clicksign)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+Laravel package for integration with ClickSign services
 
 ## Installation
 
@@ -19,6 +19,8 @@ fill in the required variables
 ```bash
 CLICKSIGN_ACCESS_TOKEN=
 CLICKSIGN_DEV_MODE=true
+CLICKSIGN_DEV_URL=https://sandbox.clicksign.com
+CLICKSIGN_PROD_URL=https://app.clicksign.com
 ```
 
 ## Usage
@@ -30,16 +32,28 @@ $response = (new Clicksign())->createDocument($path, $clicksignPath = null, $mim
 
 #### To create a signer
 ``` php
-$response = (new Clicksign())->createSigner($email, $name, $phoneNumber = null, $documentation = false, $birthday = null, $has_documentation = false);
+$response = (new Clicksign())->createSigner(String $email, String $name, $phoneNumber = null, $documentation = false, $birthday = null, $has_documentation = false);
 ```
 
 #### To add a signer to the document
 ``` php
-$response =  (new Clicksign())->signerToDocument($DocumentKey, $signerKey);
+$response =  (new Clicksign())->signerToDocument(String $document_key, $signer_key, $sign_as = 'approve', $message = null);
 ```
 #### to view a document
 ``` php
 $response =  (new Clicksign())->visualizaDocumento($DocumentKey);
+```
+#### To Cancel Document
+``` php
+$response = (new Clicksign())->cancelDocument($DocumentKey);
+```
+#### To Delete Document
+``` php
+$response = (new Clicksign())->deleteDocument($DocumentKey);
+```
+#### To Notify Signer By Email
+``` php
+$response = (new Clicksign())->notificationsByEmail($signer_key, $message = null);
 ```
 
 
