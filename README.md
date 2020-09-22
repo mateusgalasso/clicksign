@@ -1,8 +1,7 @@
-# Very short description of the package
+# Laravel package for integration with ClickSign services
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/stonkeep/clicksign.svg?style=flat-square)](https://packagist.org/packages/stonkeep/clicksign)
 [![Build Status](https://img.shields.io/travis/stonkeep/clicksign/master.svg?style=flat-square)](https://travis-ci.org/stonkeep/clicksign)
-[![Quality Score](https://img.shields.io/scrutinizer/g/stonkeep/clicksign.svg?style=flat-square)](https://scrutinizer-ci.com/g/stonkeep/clicksign)
 [![Total Downloads](https://img.shields.io/packagist/dt/stonkeep/clicksign.svg?style=flat-square)](https://packagist.org/packages/stonkeep/clicksign)
 
 Laravel package for integration with ClickSign services
