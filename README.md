@@ -17,7 +17,7 @@ composer require stonkeep/clicksign
 fill in the required variables
 ```bash
 CLICKSIGN_ACCESS_TOKEN=
-CLICKSIGN_DEV_MODE=true
+CLICKSIGN_DEV_MODE=true //In production it must be false to get the clicksign production path
 CLICKSIGN_DEV_URL=https://sandbox.clicksign.com
 CLICKSIGN_PROD_URL=https://app.clicksign.com
 ```
