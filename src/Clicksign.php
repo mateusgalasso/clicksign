@@ -1,6 +1,6 @@
 <?php
 
-namespace Stonkeep\Clicksign;
+namespace Mateusgalasso\Clicksign;
 
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Client\Response;

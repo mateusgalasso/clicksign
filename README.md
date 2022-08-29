@@ -1,8 +1,8 @@
 # Laravel package for integration with ClickSign services
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/stonkeep/clicksign.svg?style=flat-square)](https://packagist.org/packages/stonkeep/clicksign)
-[![Build Status](https://img.shields.io/travis/stonkeep/clicksign/master.svg?style=flat-square)](https://travis-ci.org/stonkeep/clicksign)
-[![Total Downloads](https://img.shields.io/packagist/dt/stonkeep/clicksign.svg?style=flat-square)](https://packagist.org/packages/stonkeep/clicksign)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/mateusgalasso/clicksign.svg?style=flat-square)](https://packagist.org/packages/mateusgalasso/clicksign)
+[![Build Status](https://img.shields.io/travis/mateusgalasso/clicksign/master.svg?style=flat-square)](https://travis-ci.org/mateusgalasso/clicksign)
+[![Total Downloads](https://img.shields.io/packagist/dt/mateusgalasso/clicksign.svg?style=flat-square)](https://packagist.org/packages/mateusgalasso/clicksign)
 
 Laravel package for integration with ClickSign services
 
@@ -11,7 +11,7 @@ Laravel package for integration with ClickSign services
 You can install the package via composer:
 
 ```bash
-composer require stonkeep/clicksign
+composer require mateusgalasso/clicksign
 ```
 
 fill in the required variables
@@ -66,7 +66,7 @@ If you discover any security related issues, please email mateusgalasso@yahoo.co
 
 ## Credits
 
-- [Mateus Galasso](https://github.com/stonkeep)
+- [Mateus Galasso](https://github.com/mateusgalasso)
 - [All Contributors](../../contributors)
 
 ## License

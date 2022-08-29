@@ -1,11 +1,11 @@
 {
-    "name": "stonkeep/clicksign",
+    "name": "mateusgalasso/clicksign",
     "description": "Laravel package for integration with Clicksign",
     "keywords": [
-        "stonkeep",
+        "mateusgalasso",
         "clicksign"
     ],
-    "homepage": "https://github.com/stonkeep/clicksign",
+    "homepage": "https://github.com/mateusgalasso/clicksign",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Stonkeep\\Clicksign\\": "src"
+            "Mateusgalasso\\Clicksign\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Stonkeep\\Clicksign\\Tests\\": "tests"
+            "Mateusgalasso\\Clicksign\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -43,10 +43,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Stonkeep\\Clicksign\\ClicksignServiceProvider"
+                "Mateusgalasso\\Clicksign\\ClicksignServiceProvider"
             ],
             "aliases": {
-                "Clicksign": "Stonkeep\\Clicksign\\ClicksignFacade"
+                "Clicksign": "Mateusgalasso\\Clicksign\\ClicksignFacade"
             }
         }
     }

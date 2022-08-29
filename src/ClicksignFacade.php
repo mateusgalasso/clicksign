@@ -1,11 +1,11 @@
 <?php
 
-namespace Stonkeep\Clicksign;
+namespace Mateusgalasso\Clicksign;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Stonkeep\Clicksign\Skeleton\SkeletonClass
+ * @see \Mateusgalasso\Clicksign\Skeleton\SkeletonClass
  */
 class ClicksignFacade extends Facade
 {

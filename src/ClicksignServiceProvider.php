@@ -1,6 +1,6 @@
 <?php
 
-namespace Stonkeep\Clicksign;
+namespace Mateusgalasso\Clicksign;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -22,7 +22,7 @@ class ClicksignServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('clicksign.php'),
-            ], 'config-stonkeep-clicksign');
+            ], 'config-mateusgalasso-clicksign');
 
             // Publishing the views.
             /*$this->publishes([

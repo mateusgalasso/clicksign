@@ -1,10 +1,10 @@
 <?php
 
-namespace Stonkeep\Clicksign\Tests;
+namespace Mateusgalasso\Clicksign\Tests;
 
 use Orchestra\Testbench\TestCase;
-use Stonkeep\Clicksign\Clicksign;
-use Stonkeep\Clicksign\ClicksignServiceProvider;
+use Mateusgalasso\Clicksign\Clicksign;
+use Mateusgalasso\Clicksign\ClicksignServiceProvider;
 
 class ExampleTest extends TestCase
 {
